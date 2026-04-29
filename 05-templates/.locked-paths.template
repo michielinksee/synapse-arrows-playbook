@@ -1,0 +1,47 @@
+# {PROJECT_NAME} — Locked Paths
+#
+# Files and directories that require explicit unlock to modify.
+# See https://github.com/michielinksee/synapse-arrows-playbook/blob/main/02-process/scope-locks.md
+#
+# To unlock for one commit:
+#   1. Prefix commit message with "[unlock: <reason>]"
+#   2. Add a DECISIONS.md entry explaining the change
+#   3. Get explicit reviewer approval
+#
+# Format: one path per line. Trailing slash means recursive.
+# Lines starting with # are comments. Empty lines ignored.
+#
+# Last reviewed: {YYYY-MM-DD} by {who}
+
+# ============================================================
+# SPECS — frozen feature contracts
+# ============================================================
+docs/specs/
+
+# ============================================================
+# UI — frozen visual layer
+# (uncomment what applies to this project)
+# ============================================================
+# src/components/chat/
+# src/components/ui/
+# src/styles/tokens.css
+# src/styles/colors.ts
+
+# ============================================================
+# DESIGN CONTRACTS — design.lock.json (DO NOT edit casually)
+# ============================================================
+design.lock.json
+
+# ============================================================
+# DOCS — process docs that codify decisions
+# ============================================================
+docs/ARCHITECTURE.md
+docs/BOUNDARIES.md
+docs/FIX-LOG.md
+docs/REGRESSION-TESTS.md
+
+# ============================================================
+# PROJECT-SPECIFIC — add as needed
+# ============================================================
+# src/features/{critical-feature}/
+# scripts/migration/

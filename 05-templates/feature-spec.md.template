@@ -1,0 +1,119 @@
+# {Feature Name} — Spec
+
+> Synapse Arrows Playbook feature-spec template.
+> See https://github.com/michielinksee/synapse-arrows-playbook/blob/main/02-process/feature-spec-discipline.md
+>
+> Save as: `{project}/docs/specs/{feature-name}.md`
+
+Status: 🟡 evolving
+Last reviewed: {YYYY-MM-DD} by {who}
+
+---
+
+## 1. Purpose
+
+{One sentence: what does the user achieve with this feature?}
+
+## 2. User Inputs
+
+| Input | Format | Example | Edge cases |
+|---|---|---|---|
+| {input_name} | {string / enum / number} | `{example}` | {empty, special chars, very long, ...} |
+
+## 3. Data Sources
+
+### Reads
+- `{table_or_api}`: which columns / fields / endpoints
+- `{table_or_api}`: ...
+
+### Writes
+- `{table}`: which columns, when
+
+### Constraints
+- {rate limits / latency requirements / cache TTL}
+
+## 4. LLM Roles
+
+| Stage | Model | Purpose | Prompt summary | Cost ceiling |
+|---|---|---|---|---|
+| Intent classify | {Haiku} | classify into {N} categories | "Given user input, classify into..." | $0.0X / call |
+| Response gen | {Sonnet} | recommendation body | "Generate 120-char JP recommendation..." | $0.0Y / call |
+| Disclaimer | template | static legal text | (no LLM) | 0 |
+
+## 5. Response Patterns
+
+### 5.1 Match found
+```
+{exact template or pattern, fenced for machine readability}
+```
+
+### 5.2 No match
+```
+{exact fallback template}
+```
+
+### 5.3 API / DB error
+```
+{exact error message shown to user}
+```
+
+### 5.4 Rate limit hit
+```
+{exact rate limit message}
+```
+
+### 5.5 Partial result
+```
+{when applicable}
+```
+
+## 6. UI States
+
+| State | Trigger | Visual treatment | Components shown |
+|---|---|---|---|
+| loading | request in flight | spinner | `LoadingIndicator` |
+| empty | no data yet | placeholder | `EmptyState` |
+| error | request failed | error banner | `ErrorBanner`, retry button |
+| success | data received | normal | full content |
+| partial | some data, some missing | warning chip | content + `PartialWarning` |
+
+## 7. Edge Cases (regression-prone)
+
+Each item here MUST have a corresponding regression test.
+
+| # | Case | Expected behavior | Test file |
+|---|---|---|---|
+| 1 | {input contains only kanji} | {expected} | `__tests__/edge-1.test.ts` |
+| 2 | {DB returns 0 rows} | {expected} | `__tests__/edge-2.test.ts` |
+| 3 | {special characters in brand name} | {expected} | `__tests__/edge-3.test.ts` |
+
+## 8. Linked
+
+- DECISIONS.md entries:
+  - `{YYYY-MM-DD}-{slug}` — {what}
+- Linksee Memory caveats:
+  - entity `{PROJECT}` / caveat: "{title}"
+- Tests:
+  - `{__tests__/feature.test.ts}`
+- Code:
+  - `{src/features/feature/}`
+- design.lock.json frozen_components:
+  - `{ComponentNameX}`
+  - `{ComponentNameY}`
+
+---
+
+## Status legend
+
+- 🟢 stable: PRs that contradict this spec are rejected by default
+- 🟡 evolving: under active iteration, review carefully
+- 🔴 broken: known issue, fixes welcome
+
+## Change protocol
+
+- Trivial wording fix: edit in place, log "Last reviewed" update
+- New edge case discovered: add row to §7, add test, no DECISIONS entry needed
+- LLM role / model change: DECISIONS.md entry required + Linksee context note
+- Response pattern change: DECISIONS.md entry required + Linksee caveat if it
+  reverses a prior choice
+- Status change 🟡 → 🟢: DECISIONS.md entry, reviewer approval

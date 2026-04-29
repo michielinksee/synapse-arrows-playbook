@@ -1,0 +1,64 @@
+{
+  "$schema_version": 1,
+  "_doc": "Synapse Arrows scope-locks Layer 4. Machine-readable design contract for {PROJECT_NAME}. CI fails if style files bypass `tokens` or if `frozen_components` change without DECISIONS.md entry. See https://github.com/michielinksee/synapse-arrows-playbook/blob/main/02-process/scope-locks.md",
+
+  "last_reviewed": "{YYYY-MM-DD}",
+  "approved_by": "{name}",
+
+  "tokens": {
+    "color.brand.primary": "#000000",
+    "color.brand.accent":  "#000000",
+    "color.text.body":     "#222222",
+    "color.text.muted":    "#888888",
+    "color.bg.surface":    "#ffffff",
+    "color.bg.elevated":   "#f5f5f5",
+    "color.semantic.success": "#1ec374",
+    "color.semantic.warning": "#f5a623",
+    "color.semantic.error":   "#e54848",
+
+    "spacing.xs": "4px",
+    "spacing.sm": "8px",
+    "spacing.md": "16px",
+    "spacing.lg": "24px",
+    "spacing.xl": "32px",
+
+    "radius.sm": "4px",
+    "radius.md": "8px",
+    "radius.lg": "16px",
+
+    "fontsize.body":  "15px",
+    "fontsize.title": "20px",
+    "fontsize.caption": "13px",
+
+    "fontweight.regular": 400,
+    "fontweight.medium":  500,
+    "fontweight.bold":    700
+  },
+
+  "frozen_components": {
+    "{ComponentName}": {
+      "_note": "Each property here represents a binding contract. Changing any property requires a DECISIONS.md entry.",
+      "must_have_X": true,
+      "must_show_Y": true,
+      "max_width_pct": 75,
+      "alignment": "left"
+    }
+  },
+
+  "frozen_screens": {
+    "{ScreenName}": {
+      "must_show_components": [
+        "ComponentA",
+        "ComponentB"
+      ],
+      "max_visible_actions": 3
+    }
+  },
+
+  "ci_rules": {
+    "no_inline_color_literals": true,
+    "no_inline_spacing_literals": true,
+    "tokens_only_in_styles": true,
+    "fail_on_frozen_component_change_without_decisions_entry": true
+  }
+}

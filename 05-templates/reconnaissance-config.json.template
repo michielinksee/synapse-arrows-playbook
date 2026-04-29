@@ -1,0 +1,115 @@
+{
+  "$schema_version": 1,
+  "_doc": "Configuration for the KanseiLINK reconnaissance ant on {PROJECT_NAME}. The ant runs on schedule, calls the listed monitors, compares against baselines, and reports drift. See https://github.com/michielinksee/synapse-arrows-playbook/blob/main/02-process/reconnaissance-ant.md",
+
+  "product": "{PROJECT_NAME}",
+  "schedule": "0 9 * * *",
+  "timezone": "Asia/Tokyo",
+
+  "monitors": {
+    "snapshot": {
+      "enabled": true,
+      "urls": [
+        "https://{project}.com/",
+        "https://{project}.com/{key-screen}"
+      ],
+      "diff_threshold_pct": 5,
+      "ignore_regions": [
+        {
+          "selector": "[data-testid=timestamp]",
+          "_note": "Hide dynamic timestamps from diff"
+        }
+      ]
+    },
+
+    "urls_must_200": {
+      "enabled": true,
+      "source": "HEALTH.json#urls_must_200",
+      "_note": "Reads from project's HEALTH.json — keep both files in sync"
+    },
+
+    "design_lock_check": {
+      "enabled": true,
+      "lock_file": "design.lock.json"
+    },
+
+    "agent_voice_probe": {
+      "enabled": true,
+      "questions": [
+        "{representative happy-path query 1}",
+        "{representative happy-path query 2}",
+        "{edge-case query that tests fallback}",
+        "{query that should hit empty-result branch}",
+        "{query that should hit error branch}"
+      ],
+      "expected_patterns_from_specs": [
+        "docs/specs/{feature-1}.md",
+        "docs/specs/{feature-2}.md"
+      ]
+    },
+
+    "perf_baseline": {
+      "enabled": true,
+      "ttfb_ms_max": 800,
+      "ttf_response_ms_max": 4000,
+      "_note": "Time-to-first-token for chat features. Adjust per product."
+    },
+
+    "cost_baseline": {
+      "enabled": true,
+      "daily_llm_usd_max": 5.0,
+      "weekly_drift_pct_max": 20
+    },
+
+    "cross_product_consistency": {
+      "enabled": false,
+      "_note": "Enable from W3 once 2+ products have configs",
+      "compare_with": ["{other-product-name}"],
+      "checks": [
+        "shared_terminology_consistency"
+      ]
+    }
+  },
+
+  "report_to": [
+    {
+      "destination": "STATE.md",
+      "method": "git_commit",
+      "branch": "monitoring/recon-{date}"
+    },
+    {
+      "destination": "Linksee Memory",
+      "entity": "{PROJECT_NAME}",
+      "layer": "context"
+    },
+    {
+      "destination": "morning_digest",
+      "include_only": ["yellow", "red"]
+    }
+  ],
+
+  "urgency_rules": {
+    "critical": [
+      "snapshot diff > 10%",
+      "urls_must_200 failure",
+      "ttfb > 2x baseline",
+      "agent_voice unexpected pattern (3+ of N)",
+      "design_lock_check fails frozen_components"
+    ],
+    "warning": [
+      "snapshot diff > 5% (3-day window)",
+      "agent_voice unexpected pattern (1-2 of N)",
+      "perf drift > 50% from baseline",
+      "cost weekly drift > 20%"
+    ],
+    "info": [
+      "snapshot diff > 2%",
+      "perf drift > 25%"
+    ]
+  },
+
+  "dry_run": {
+    "enabled": true,
+    "_note": "Set to false after 1 week of dry-run with false-positive < 5%"
+  }
+}

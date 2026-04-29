@@ -1,6 +1,6 @@
 # Synapse Arrows Playbook
 
-**Status: v0.1 (2026-04-29) — bootstrap, expanding through May 2026**
+**Status: v0.2 (2026-04-29) — bootstrap, expanding through May 2026**
 
 The operating system Synapse Arrows uses to build and run agent-economy products.
 Same OS at every scale: company → product → embedded agent → end user.
@@ -35,14 +35,18 @@ on top, never pay the iteration tax twice.
 00-principles/        Foundational rules (infrastructure-first, self-similar
                       architecture, role separation, three-strike rule)
 01-vision/            North star + product portfolio + values
-02-process/           Concrete patterns we run (4-file structure, plan mode,
-                      3-tier boundaries, session handoff)
+02-process/           Concrete patterns we run (4-file structure, 3-tier
+                      boundaries, scope-locks, reconnaissance-ant,
+                      feature-spec-discipline)
 03-tools/             Tools we use deeply (linksee-memory, claude-code-best-
                       practices, glama listing, vercel-deployment)
 04-tooling-gaps/      What we DON'T have yet — intentionally listed
-                      (Anthropic 5 patterns, eval suite, Cowork, Synapse Threads)
+                      (Anthropic 5 patterns, visual regression stack,
+                      KanseiLINK-as-internal-monitoring, eval suite, etc.)
 05-templates/         Bootstrap templates for new projects (CLAUDE, BOUNDARIES,
-                      GOALS, STATE, DECISIONS, HEALTH)
+                      GOALS, STATE, DECISIONS, HEALTH, .locked-paths,
+                      design.lock.json, pr-scope-template, reconnaissance-config,
+                      feature-spec)
 06-projects/          Pointers + status for Synapse Arrows products
 07-learnings/         Chronological essays from major incidents and discoveries
 99-meta/              How this Playbook works on itself
@@ -65,20 +69,35 @@ the project-specific bits, the rest is already scaffold.
 
 ## Status by section
 
-| Section | v0.1 status | Target |
+| Section | v0.2 status | Target |
 |---|---|---|
 | 00-principles | 4 files written | Stable foundation |
-| 01-vision | TBD | Fill May W1 |
-| 02-process | 3 core files | Expand May W1-W2 |
+| 01-vision | placeholder | Fill May W1 |
+| 02-process | 5 files (4-file-structure / 3-tier-boundaries / scope-locks / reconnaissance-ant / feature-spec-discipline) | Expand May W1-W2 |
 | 03-tools | linksee-memory written | Add 4-5 more in May |
-| 04-tooling-gaps | Anthropic 5 patterns logged | Update post-Cowork eval (4/30) |
-| 05-templates | 5 starter templates | Stable, evolve as patterns mature |
-| 06-projects | TBD | Fill as projects port to Playbook |
+| 04-tooling-gaps | 3 files (Anthropic 5 patterns / visual-regression-stack / KanseiLink-as-internal-monitoring) | Update post-Cowork eval |
+| 05-templates | 11 starter templates | Stable, evolve as patterns mature |
+| 06-projects | placeholder | Fill as projects port to Playbook |
 | 07-learnings | 1 entry (2026-04-29 cofounder session) | Add per major incident |
 | 99-meta | how-this-works | Evolve as Playbook itself evolves |
 
 v1.0 ETA: end of May 2026 ("Infrastructure Month" — see
 `07-learnings/2026-04-29-cofounder-session-insights.md`).
+
+## v0.2 additions (2026-04-29 PM)
+
+After shipping v0.1, an additional cofounder session uncovered the need
+for a **two-layer protection model**:
+
+- **scope-locks** (passive defense) — protects already-decided contracts
+  via locked-paths, design.lock.json, visual regression. Prevents the
+  ScaNavi-style "fix breaks unrelated UI" problem at the code level.
+- **reconnaissance-ant** (active offense) — uses KanseiLINK's MCP tools
+  to crawl all Synapse Arrows products every morning, detecting drift
+  the locks cannot anticipate.
+
+These layers are now part of v0.2. See `02-process/scope-locks.md` and
+`02-process/reconnaissance-ant.md`.
 
 ## License
 
