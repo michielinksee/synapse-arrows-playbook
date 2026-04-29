@@ -136,19 +136,20 @@ Effort: process change. Every fix takes 10-15% longer initially, ~50% less
 time over the long run as regression risk drops.
 ROI: structural protection; fewer 2-week iteration cycles.
 
-## Adoption schedule (May 2026 Infrastructure Month)
+## Adoption order (tier-based, on-demand)
 
-| Week | Patterns to adopt |
-|---|---|
-| W1 (5/1-7) | #1 Slash commands (build /audit, /release, /start-day) |
-| W2 (5/8-14) | #2 Separate git checkouts (set up convention) |
-| W3 (5/15-21) | #3 Plan Mode 1-shot (process change, train ourselves) |
-| W4 (5/22-31) | #4 Screenshot debug (habit) + #5 TDD with Claude (default) |
+| Tier | Patterns | Trigger / why first |
+|---|---|---|
+| Tier A | #1 Slash commands (start with /audit, /release, /start-day) | Highest leverage, independent of any project state. Build whenever a Claude session has 1-2h. |
+| Tier A | #5 TDD with Claude (default mode for any new feature) | Process change, no infrastructure needed |
+| Tier B | #3 Plan Mode 1-shot | Triggered by next "complex feature" PR — try it instead of conversational |
+| Tier B | #2 Separate git checkouts | Triggered by first time we need 2 parallel implementer Claudes on different features |
+| Tier C | #4 Screenshot debug | Habit — adopted when the next UI bug appears |
 
-By end of May, Anthropic-tooling parity should be ~80%+ instead of
-40-50%. Combined with our process advantages (Linksee Memory, 4-file,
-role-separation), the result is a hybrid that exceeds either approach
-alone.
+After all 5 are adopted, Anthropic-tooling parity should be ~80%+
+instead of 40-50%. Combined with our process advantages (Linksee
+Memory, 4-file, role-separation), the result is a hybrid that exceeds
+either approach alone.
 
 ## What we have that Anthropic doesn't (publicly)
 

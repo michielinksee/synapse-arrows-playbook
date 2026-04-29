@@ -140,27 +140,30 @@ For each product in [KanseiLink, AgentStars, ScaNavi, CardWize, Linksee Memory]:
      - 同じ操作の手数差
 ```
 
-## Implementation roadmap (May 2026)
+## Implementation roadmap
 
-### W1: 設計と土台
-- [ ] `reconnaissance-config.json` template と schema 確定
+Tier-based, not week-based. Pick up Tier B when the trigger condition is
+met — don't pre-schedule.
+
+### Tier A: foundation (do whenever) — ~1 day total
+- [ ] `reconnaissance-config.json` template と schema 確定 (✅ done in v0.2)
 - [ ] HEALTH.json から urls_must_200 を読込む形を確定
-- [ ] KanseiLINK 既存ツールの「内向き呼び出し」モードを追加
+- [ ] KanseiLINK 既存ツールの「内向き呼び出し」モードを追加 (~半日)
 
-### W2: MVP（ScaNavi + AgentStars 2本のみ）
+### Tier B: MVP (trigger: post-launch slack day) — ~2-3 days total
 - [ ] Cron orchestrator: KanseiLINK 内に新規エンドポイント
 - [ ] Snapshot diff（前日との比較ロジック）
 - [ ] agent_voice probe runner
 - [ ] STATE.md 自動追記スクリプト
 - [ ] 朝digest連携（Linksee Memory経由）
+- [ ] 最初の被験者: ScaNavi + AgentStars 2 本で開始
 
-### W3: 5プロダクト全展開
+### Tier C: full coverage (trigger: MVP stable for 1 week) — ~1 day
 - [ ] CardWize, KanseiLink, Linksee Memory の config 追加
 - [ ] Visual regression baseline 作成
-- [ ] 1週間 dry-run（report のみ、actionなし）
-- [ ] False positive 率の計測
+- [ ] False positive 率の計測（< 5% 確認まで dry-run）
 
-### W4: 公開記事化
+### Tier D: external storytelling (trigger: full coverage stable) — ~1 day
 - [ ] Zenn 記事 1本: "We let KanseiLINK monitor itself every morning"
 - [ ] Dev.to 翻訳版
 - [ ] X で展開
@@ -176,7 +179,7 @@ For each product in [KanseiLink, AgentStars, ScaNavi, CardWize, Linksee Memory]:
 - **報告先がgit logだけ**: STATE.md / Linksee / digest の3点同時に流すこと
   （見落としを防ぐ）
 
-## Synapse Threads MCP との接続（5月W3〜）
+## Synapse Threads MCP との接続（Tier C+ / future）
 
 reconnaissance-ant が🔴を検出したとき、現状は「人間が読む」ところで止まる。
 将来的には:

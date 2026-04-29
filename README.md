@@ -72,17 +72,20 @@ the project-specific bits, the rest is already scaffold.
 | Section | v0.2 status | Target |
 |---|---|---|
 | 00-principles | 4 files written | Stable foundation |
-| 01-vision | placeholder | Fill May W1 |
-| 02-process | 5 files (4-file-structure / 3-tier-boundaries / scope-locks / reconnaissance-ant / feature-spec-discipline) | Expand May W1-W2 |
-| 03-tools | linksee-memory written | Add 4-5 more in May |
+| 01-vision | placeholder | Fill on next vision review |
+| 02-process | 5 files (4-file-structure / 3-tier-boundaries / scope-locks / reconnaissance-ant / feature-spec-discipline) | Expand on demand |
+| 03-tools | linksee-memory written | Add 1 file per tool as adopted |
 | 04-tooling-gaps | 3 files (Anthropic 5 patterns / visual-regression-stack / KanseiLink-as-internal-monitoring) | Update post-Cowork eval |
 | 05-templates | 11 starter templates | Stable, evolve as patterns mature |
 | 06-projects | placeholder | Fill as projects port to Playbook |
 | 07-learnings | 1 entry (2026-04-29 cofounder session) | Add per major incident |
 | 99-meta | how-this-works | Evolve as Playbook itself evolves |
 
-v1.0 ETA: end of May 2026 ("Infrastructure Month" — see
-`07-learnings/2026-04-29-cofounder-session-insights.md`).
+**No phase-based release plan.** Synapse Arrows Playbook is internal
+infrastructure — adoption happens project-by-project, PR-by-PR, as the
+need arises. v1.0 = whenever 06-projects/ has 5+ projects fully
+following the patterns. Likely sometime in 5月-6月, but the date is
+output, not input.
 
 ## v0.2 additions (2026-04-29 PM)
 
@@ -98,6 +101,18 @@ for a **two-layer protection model**:
 
 These layers are now part of v0.2. See `02-process/scope-locks.md` and
 `02-process/reconnaissance-ant.md`.
+
+## Adoption tier convention
+
+Throughout this Playbook, work is organized by **Tier**, not by week:
+
+- **Tier A**: foundation work, do whenever (independent, ~hours)
+- **Tier B**: MVP / first applicant (triggered by a specific need)
+- **Tier C**: expansion (triggered by B being stable for 1 week)
+- **Tier D**: external storytelling / publication
+
+This avoids "calendar-driven procrastination" — the infrastructure-first
+principle says do it now, not in May W3.
 
 ## License
 
