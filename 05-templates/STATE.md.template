@@ -1,0 +1,78 @@
+# {PROJECT_NAME} — Current State
+
+> Tier 1: every agent session MUST read this first, along with GOALS.md.
+>
+> Updated daily by 朝ダイジェスト agent once it exists. Until then, manually
+> updated at the end of each significant session.
+>
+> **Two-layer memory split**:
+> - This 4-file structure = *"what & what changed"* (project-specific, structured)
+> - Linksee Memory = *"why & the story"* (narrative, cross-session)
+
+Last updated: **{YYYY-MM-DD HH:MM JST}** (manual — {author})
+Next expected update: {when}
+
+---
+
+## Production Health Snapshot
+
+| Surface | Status | Detail |
+|---|---|---|
+| {URL or service} | 🟢/🟡/🔴/⚪ | {1-line metric} |
+
+---
+
+## {Section relevant to project — e.g. Grade Distribution / Active Users / etc.}
+
+{Project-specific snapshot data}
+
+---
+
+## Squad Status
+
+| Squad | Status | Next milestone |
+|---|---|---|
+| {Squad name} | 🟢 ACTIVE | {what's underway} |
+| {Squad name} | 🟡 partial | {what's missing} |
+| {Squad name} | 🔴 not built | {when planned} |
+
+---
+
+## Today's / Recent Commits
+
+{date format YYYY-MM-DD or `today`}:
+1. **{commit SHA}** — {one-line description}
+2. **{commit SHA}** — {description}
+
+See DECISIONS.md for context/reasoning of each.
+
+---
+
+## Next 3 Actions
+
+1. **(who, when)** — {highest priority action}
+2. **(who, when)** — {next}
+3. **(who, when)** — {next}
+
+## Open Questions (rolled daily)
+
+- {question that needs decision but isn't blocking}
+- {another}
+
+## Rollover from Previous Session
+
+- ✅ {completed since last update}
+- ⏸ {paused, expected resume condition}
+- ❌ {dropped or deprioritized, reason}
+
+---
+
+## How to use this file
+
+**At session start**: read this → read GOALS.md → `recall("{PROJECT_NAME}")`
+from Linksee Memory → read relevant DECISIONS.md entries.
+
+**During work**: update "Next 3 Actions" when priorities shift.
+
+**At session end**: update the Production Health Snapshot if anything
+changed, and move completed items out of "Next 3 Actions".

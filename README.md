@@ -1,0 +1,93 @@
+# Synapse Arrows Playbook
+
+**Status: v0.1 (2026-04-29) — bootstrap, expanding through May 2026**
+
+The operating system Synapse Arrows uses to build and run agent-economy products.
+Same OS at every scale: company → product → embedded agent → end user.
+
+## What this is
+
+This repo is the **single source of truth** for how Michie + Cofounder Claude
+operate Synapse Arrows. It captures process, tools, templates, and learnings
+that took 4 months of solo-founder work + 2 cycles of "iteration hell" to
+discover.
+
+It is **deliberately public** so:
+- Other solo founders can adopt the patterns
+- Future Claude sessions (ours and others') can bootstrap on day 0
+- Synapse Arrows accumulates positioning as an agent-economy methodology source
+
+## Why this exists
+
+Two cycles of detail-iteration burned ~2 weeks each on different products
+(Linksee old; ScaNavi brand-parser regression). The pattern was identical:
+fix breaks fix, motivation drains, output sometimes regresses. The diagnosis
+is structural, not tactical:
+
+> **Detail iteration hell is the symptom; infrastructure absence is the disease.**
+
+This Playbook is the cure: build the operating substrate first, ship products
+on top, never pay the iteration tax twice.
+
+## Repo structure
+
+```
+00-principles/        Foundational rules (infrastructure-first, self-similar
+                      architecture, role separation, three-strike rule)
+01-vision/            North star + product portfolio + values
+02-process/           Concrete patterns we run (4-file structure, plan mode,
+                      3-tier boundaries, session handoff)
+03-tools/             Tools we use deeply (linksee-memory, claude-code-best-
+                      practices, glama listing, vercel-deployment)
+04-tooling-gaps/      What we DON'T have yet — intentionally listed
+                      (Anthropic 5 patterns, eval suite, Cowork, Synapse Threads)
+05-templates/         Bootstrap templates for new projects (CLAUDE, BOUNDARIES,
+                      GOALS, STATE, DECISIONS, HEALTH)
+06-projects/          Pointers + status for Synapse Arrows products
+07-learnings/         Chronological essays from major incidents and discoveries
+99-meta/              How this Playbook works on itself
+CLAUDE.md             Session ritual for any Claude entering this repo
+```
+
+## How to use this Playbook
+
+### If you are a Claude session (any window)
+Read `CLAUDE.md` immediately. It tells you how to operate inside the Playbook
+and how to integrate it with your current task.
+
+### If you are a human (Michie or visitor)
+Start with `00-principles/`. Each file is a 5-10 minute read. Then browse
+`02-process/` for concrete patterns you can copy.
+
+### If you are starting a new project
+Use `05-templates/` to bootstrap in under 1 hour. Copy the files, customize
+the project-specific bits, the rest is already scaffold.
+
+## Status by section
+
+| Section | v0.1 status | Target |
+|---|---|---|
+| 00-principles | 4 files written | Stable foundation |
+| 01-vision | TBD | Fill May W1 |
+| 02-process | 3 core files | Expand May W1-W2 |
+| 03-tools | linksee-memory written | Add 4-5 more in May |
+| 04-tooling-gaps | Anthropic 5 patterns logged | Update post-Cowork eval (4/30) |
+| 05-templates | 5 starter templates | Stable, evolve as patterns mature |
+| 06-projects | TBD | Fill as projects port to Playbook |
+| 07-learnings | 1 entry (2026-04-29 cofounder session) | Add per major incident |
+| 99-meta | how-this-works | Evolve as Playbook itself evolves |
+
+v1.0 ETA: end of May 2026 ("Infrastructure Month" — see
+`07-learnings/2026-04-29-cofounder-session-insights.md`).
+
+## License
+
+MIT. Copy, adapt, fork. If you adopt the patterns, a citation back to
+[synapse-arrows.com](https://synapsearrows.com) is appreciated but not required.
+
+## Maintained by
+
+Michie Yamaguchi (Synapse Arrows PTE. LTD.) and Cofounder Claude.
+Built in 🇸🇬 Singapore.
+
+Contact: contact@synapse-arrows.com · X: [@ELLECraftsinga1](https://x.com/ELLECraftsinga1)

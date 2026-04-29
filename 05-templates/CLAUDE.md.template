@@ -1,0 +1,72 @@
+# CLAUDE.md — {PROJECT_NAME}
+
+You are a Claude session entering the {PROJECT_NAME} repo.
+
+## Two memory layers (mandatory reads)
+
+This 4-file structure (`GOALS / STATE / DECISIONS / HEALTH`)
+  = **what's the project doing right now, what changed, what normal looks like**.
+  Project-specific. Path-addressable. Mandatory reads at session start.
+
+Linksee Memory (`recall("{PROJECT_NAME}")`)
+  = **why things matter, what past pain taught us, the story**.
+  Narrative. Cross-session. Covers emotion, context, caveat, learning.
+
+Both are required. The 4-file answers "what & what changed"; Linksee Memory
+answers "why & the story."
+
+## Session-start ritual
+
+1. Read `STATE.md` (current state, 30s)
+2. Read `GOALS.md` (this week + OKR, 30s)
+3. Run `recall("{PROJECT_NAME}")` from Linksee Memory (narrative, 30s)
+4. If touching a past decision, read that DECISIONS.md entry
+5. Begin work with 2-3 min of context overhead, not 15-30 min
+
+## In-session updates (agent proposes, human approves)
+
+- Each insight / failure / "why" → `remember()` to Linksee Memory
+- Each commit → append an entry to `DECISIONS.md`
+- Each fragile-area touch → check `FIX-LOG.md` first
+
+## Plan Mode preamble (mandatory before any code change)
+
+1. Read GOALS / STATE / DECISIONS for the relevant area
+2. Run `recall("{PROJECT_NAME}")`
+3. State your plan in chat — DO NOT modify files yet
+4. Wait for human "go"
+5. Then start coding
+6. Smallest possible diff
+7. Add regression test before fix
+8. Update FIX-LOG.md as you go (not after)
+
+## Boundaries (see `BOUNDARIES.md`)
+
+- ✅ Always do: act without asking
+- ⚠️ Ask first: state plan, wait for approval, then execute
+- 🚫 Never do: refuse, cite the rule, suggest the proper escalation path
+
+## Session-end ritual
+
+- Update `STATE.md` "Next 3 Actions" + "Open Questions"
+- Update Production Health Snapshot if anything changed
+- Add emotional / strategic insights to Linksee Memory
+
+## Cadence summary
+
+| File | Update frequency |
+|---|---|
+| Linksee Memory | per insight (frequent) |
+| DECISIONS.md | per commit |
+| STATE.md | session-end + daily morning (when 朝ダイジェスト agent ships) |
+| GOALS.md | weekly Friday review + monthly OKR review |
+| HEALTH.json | when baselines shift |
+| FIX-LOG.md | per bug-class encounter |
+
+## Synapse Arrows Playbook reference
+
+This file follows the Synapse Arrows Playbook at
+https://github.com/michielinksee/synapse-arrows-playbook .
+
+When in doubt about a pattern, default to the Playbook before inventing
+a new convention.

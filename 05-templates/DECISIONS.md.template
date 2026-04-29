@@ -1,0 +1,40 @@
+# {PROJECT_NAME} — Decision Log
+
+> Append-only. Most recent at top. Never edit past entries; correct with a
+> new entry that references the old one.
+>
+> Tier 2: read **when your task touches a past decision**.
+
+Format per entry:
+
+```
+## YYYY-MM-DD — [short title]
+CONTEXT: why a decision was needed
+DECISION: what was decided
+REASON: why this option over alternatives
+REVERSIBILITY: High / Medium / Low
+COMMITS: git SHAs (if applicable)
+OPEN: unresolved follow-ups
+```
+
+---
+
+## {YYYY-MM-DD} — Adopted Synapse Arrows Playbook 4-File Structure
+CONTEXT: This project did not have explicit operating substrate. Sessions
+re-derived context per visit, regressions slipped through, decisions weren't
+auditable.
+DECISION: Adopt the 4-file structure (GOALS / STATE / DECISIONS / HEALTH) +
+BOUNDARIES.md from https://github.com/michielinksee/synapse-arrows-playbook .
+Every Claude session reads STATE → GOALS → recall("{PROJECT_NAME}") on entry.
+REASON: Per Synapse Arrows infrastructure-first principle. Cost of adoption
+~30 min; cost of NOT adopting (per measured precedent) is 1-2 weeks of
+detail-iteration tax per product.
+REVERSIBILITY: High — files are markdown, can be removed if the team wants.
+COMMITS: {first commit SHA after adoption}
+OPEN: First STATE.md update; populate `06-projects/{project}.md` in the
+Playbook repo with a pointer back to this project.
+
+---
+
+<!-- Add new decisions above this line. Never edit existing entries;
+     correct with a new entry that references the old one by date. -->

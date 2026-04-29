@@ -1,0 +1,86 @@
+# {PROJECT_NAME} — Goals
+
+> Tier 1: every agent session MUST read this first, along with STATE.md and
+> relevant DECISIONS.md entries.
+
+Last reviewed: {YYYY-MM-DD}
+Owned by: {Michie + Cofounder Claude}
+
+---
+
+## North Star
+*Reviewed every 6 months. Changing this is a founder-level decision.*
+
+{One or two sentences describing the durable goal. Should be true 3+ years
+out.}
+
+---
+
+## {YEAR} {QUARTER} OKR
+*Target close: {date}. Reviewed weekly, changed monthly only.*
+
+**Objective**: {user-centric outcome statement}
+
+| KR | Target | Metric |
+|---|---|---|
+| KR1 | {number} | {how measured} |
+| KR2 | {number} | {how measured} |
+| KR3 | {number} | {how measured} |
+
+---
+
+## This Week — {YYYY-MM-DD} → {YYYY-MM-DD}
+*Reviewed Friday evening. Uncompleted items roll to next week with explicit reason.*
+
+- [ ] {concrete deliverable 1}
+- [ ] {concrete deliverable 2}
+- [ ] {concrete deliverable 3}
+
+## This Month — {date range}
+
+{Brief narrative of monthly goal + key milestones.}
+
+**Month KPIs**: {3-5 measurable targets for end-of-month review}
+
+---
+
+## Trigger Rules (remove emotion from decisions)
+
+These rules pre-commit to actions based on data, not feeling.
+
+### {Major event} verdict (evaluated {date})
+- **{Threshold met}** → {action}
+- **{Threshold missed}** → {alternative action}
+
+---
+
+## Guardrails (never do)
+
+1. {Specific irreversible thing not to do}
+2. {Another}
+
+(See also `BOUNDARIES.md` for the full ✅⚠️🚫 list.)
+
+---
+
+## Relationship to Other Projects
+
+| Project | Positioning | Shared interface |
+|---|---|---|
+| {Other Synapse Arrows project} | {how related} | {shared DB / API / convention} |
+
+---
+
+## How to use this file
+
+**Before acting**: read this file, then STATE.md, then relevant DECISIONS.md
+entries.
+
+**When finishing**: if the work changes anything here, update this file +
+log the change in DECISIONS.md.
+
+**Weekly review (Friday evening)**: mark completed items, reassess next
+week's list.
+
+**Monthly review (last Friday)**: reassess the OKR — are the KRs still the
+right ones?

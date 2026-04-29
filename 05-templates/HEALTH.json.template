@@ -1,0 +1,46 @@
+{
+  "$schema_version": 1,
+  "last_reviewed": "{YYYY-MM-DD}",
+  "reviewed_by": "{name}",
+  "description": "Machine-readable health baselines for {PROJECT_NAME}. The 構造チェック agent reads this file, pings each surface, and flags anomalies to the morning digest. Update baselines when steady-state numbers shift — log the change in DECISIONS.md.",
+
+  "baselines": {
+    "{metric_name_1}": {
+      "min": 0,
+      "max": 100,
+      "unit": "{unit}",
+      "note": "{Why these thresholds. What does it mean if the metric is below min or above max.}"
+    },
+    "{metric_name_2}": {
+      "max": 30,
+      "unit": "hours",
+      "note": "{Example: 'Daily scheduled crawl should succeed within rolling 30h window.'}"
+    }
+  },
+
+  "urls_must_200": [
+    "https://{project}.com/",
+    "https://{api-host}/health"
+  ],
+
+  "anomaly_routing": {
+    "destination": "morning_digest",
+    "urgency": {
+      "critical": [
+        "urls_must_200 failure",
+        "{other always-paging conditions}"
+      ],
+      "warning": [
+        "{baselines drifting outside normal}"
+      ],
+      "info": [
+        "{noteworthy but not actionable}"
+      ]
+    }
+  },
+
+  "not_yet_implemented": [
+    "Health-check agent itself (build during 5月 Infrastructure Month)",
+    "Auto-routing to digest (depends on 朝ダイジェスト agent)"
+  ]
+}

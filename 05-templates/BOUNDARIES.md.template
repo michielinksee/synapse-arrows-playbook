@@ -1,0 +1,72 @@
+# {PROJECT_NAME} — Autonomy Boundaries
+
+> Defines what agents (human or AI) can do at three autonomy tiers.
+> Pre-decision eliminates the cognitive cost of judging every action mid-flight.
+>
+> See https://github.com/michielinksee/synapse-arrows-playbook/blob/main/02-process/3-tier-boundaries.md
+> for the full doctrine.
+
+Last reviewed: {YYYY-MM-DD}
+
+---
+
+## ✅ Always do (no approval needed)
+
+Low blast radius, easy to verify, easy to revert.
+
+- {project-specific examples — e.g. "run pnpm test", "append to FIX-LOG.md"}
+- {another}
+- {another}
+
+## ⚠️ Ask first (human sign-off needed)
+
+Medium blast radius. Wrong execution costs hours, breaks user experience, or
+spends money. Worth a 30-second human gate.
+
+State your plan in chat → wait for approval → execute.
+
+- {e.g. "bump runtime dependency"}
+- {e.g. "change LLM model"}
+- {e.g. "edit DANGER ZONE files"}
+- {e.g. "spend >$1 on a Sonnet batch"}
+
+## 🚫 Never do (structurally forbidden)
+
+Unbounded or irreversible blast radius. Refuse even if a sleep-deprived
+human says yes at 2am.
+
+- {e.g. "echo .env or secrets"}
+- {e.g. "write directly to production database"}
+- {e.g. "force-push to main"}
+- {e.g. "delete past entries in DECISIONS.md"}
+- {e.g. "use --no-verify"}
+
+---
+
+## Evolution log
+
+When a tier changes, log it here with date + reason + DECISIONS.md ref.
+
+| Date | Change | Reason | DECISIONS.md ref |
+|---|---|---|---|
+| {YYYY-MM-DD} | {X → Y} | {why} | {entry date} |
+
+### Promotion / demotion rules
+
+- ✅ → ⚠️ : 1 incident attributable to that action.
+- ⚠️ → ✅ : 5+ consecutive approvals with no incident.
+- ⚠️ → 🚫 : 1 near-miss prompting a "shouldn't even be available" decision.
+- 🚫 → ⚠️ : rare; only when other infrastructure makes the action newly safe.
+              Requires DECISIONS.md justification.
+- 🚫 → ✅ : never. Lowest a once-forbidden action can go is ⚠️.
+
+---
+
+## Anti-patterns
+
+- **Tier-shopping mid-action**: an agent encounters a ⚠️ action, gets
+  impatient, decides "this is really a ✅." Refuse. The whole point of
+  pre-decided tiers is to avoid in-flight rationalization.
+- **Empty 🚫 list**: there must be SOME absolutes. If not, the system has no
+  structural protection.
+- **Stale list**: review monthly. Promote, demote, or remove items.
