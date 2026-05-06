@@ -1,9 +1,22 @@
-# KanseiLink — Finance Vertical Pivot (Layered Strategy)
+# KanseiLink — Finance Vertical Pivot (3-Layer Strategy)
 
-> Status: strategic pivot, 2026-05-07 起案
+> Status: strategic pivot, 2026-05-07 起案 → **2026-05-07 sharpen** (Cockpit Web UI 追加)
 > Owner: Michie (B2B sales) + Cofounder Claude (strategy)
 > Predecessors: 既存 KanseiLink MCP intelligence layer (200+ Japanese SaaS catalog)
 > Companions: [04-linksee-memory-pro-tier-launch-plan](./04-linksee-memory-pro-tier-launch-plan.md), [06-tokyo-conference-strategy](./06-tokyo-conference-strategy.md)
+
+## 2026-05-07 PM sharpen (重要な修正)
+
+当初の 2層構造案 (Layer 1 Composio + Layer 2 Finance MCP) は **MCP dev 向けの発想に止まっていた**。 実際の市場 (税理士・会計士・SMB 経理担当) は MCP server を直接設定できない、 Claude / GPT に顧客データを直接流せない (security 怖い)、 自前で組む時間 / skill ない。
+
+→ **deliverable は Web UI (SaaS 風 dashboard)**、 MCP は backend に隠す。
+
+3層構造に進化:
+- Layer 1 (基盤): Japanese Composio (200+ SaaS catalog、 既存)
+- Layer 2 (拡張): Finance Vertical MCP server (J-GAAP Earnings Reviewer / Month-end Closer / Statement Auditor)
+- **Layer 3 (NEW): Cockpit Web UI for tax accountants** (= 営業可能 product)
+
+新名称 (内部): "**KanseiLink Cockpit**"
 
 ## Why pivot now
 
@@ -35,21 +48,85 @@
 
 → **enterprise security 問題で大手 / 上場企業の本格導入はブロック**、 **個人 / 中小事務所 / SMB 経理担当はすでに使い始めている**。market gap が一時的に開いている。
 
-## Strategic positioning (二層構造)
+## Strategic positioning (3層構造)
 
-### Layer 1 (基盤): Japanese Composio 
+### Layer 1 (基盤): Japanese Composio
 
 200+ Japanese SaaS catalog + MCP intelligence + recipe / agent_voice / audit_cost。
-**変えない**。これが kanselink.com の実体。
+**変えない**。これが kansei-link.com の実体。
 
-### Layer 2 (拡張): Finance / Accounting Vertical
+### Layer 2 (中間): Finance / Accounting Vertical MCP
 
-Layer 1 の上に **特化 product** を3つ build:
+Layer 1 の上に **特化 MCP server** を 3 つ build:
 1. **J-GAAP Earnings Reviewer** — TDnet / EDINET 資料 → freee 連携 → AI summary
 2. **Month-end Closer for 会計事務所** — 弥生 / freee の月次決算 AI 自動化
 3. **Statement Auditor for 経費精算** — freee 経費 → 異常検知 + 異議メモ
 
 これらは **Anthropic の global tools の Japan ブリッジ** として positioning。
+ただし**最終ユーザー (税理士) には見えない**。 dev / 内部統合用。
+
+### Layer 3 (NEW、 営業面): Cockpit Web UI
+
+```
+Persona: 個人税理士 / 会計事務所 / 中小企業経理担当
+         (= 技術者ではない、 freee / Money Forward を毎日使う人)
+
+Product: Web UI (familiar SaaS look) で AI が下働き
+         backend は Layer 1 + Layer 2 (MCP server)
+
+Value:   "面倒な経理 work が AI でやれる、 でも顧客データは安全"
+         = market barrier 3 つを全部解消
+
+Channel: SaaS subscription (per firm or per seat)
+```
+
+#### Architecture
+
+```
+┌──────────────────────────────────────────┐
+│ Layer 3 (NEW): Cockpit Web UI            │
+│  ・ Login + dashboard                     │
+│  ・ Workflow tile (J-GAAP Earnings 等)    │
+│  ・ Audit log + 顧客データ管理             │
+│  ・ Web app は Vercel (Japan region)      │
+└──────────────────────────────────────────┘
+           ↑ HTTPS / GraphQL (server only call)
+┌──────────────────────────────────────────┐
+│ Layer 2: Finance Vertical MCP server     │
+│  ・ Sampling で Anthropic Claude 経由     │
+│  ・ Layer 1 catalog 経由で freee 連携     │
+└──────────────────────────────────────────┘
+           ↑ MCP protocol (internal)
+┌──────────────────────────────────────────┐
+│ Layer 1: Japanese Composio               │
+│  ・ 200+ SaaS catalog (既存)              │
+│  ・ recipe / agent_voice / audit_cost    │
+└──────────────────────────────────────────┘
+```
+
+→ **税理士は Layer 3 だけ見える**、 Layer 1-2 は完全に隠蔽。
+"AI を意識せず使える" = adoption barrier 消滅。
+
+#### なぜ Web UI 必須か (3 つの構造的 barrier 解消)
+
+| Barrier | 旧 plan (raw MCP) では解けない | Cockpit Web UI で解ける |
+|---|---|---|
+| AI 自動化の knowledge ない | dev 必要 | dashboard click だけ |
+| 顧客データ流出 risk | client 側に Claude key 必要 | Synapse Arrows サーバー (日本) 経由、 audit log + 即時削除 |
+| 自分で組む時間 / skill ない | 各事務所が個別に MCP server 設定 | 即 onboarding (signup → 5 分で workflow 動く) |
+
+#### Security narrative (商品化できる)
+
+```
+あなたの顧客データは:
+  1. Synapse Arrows のサーバー (日本 region) を一時通過
+  2. Anthropic Claude API に渡る (匿名化 layer 経由)
+  3. 完了後即削除 (no training data)
+  4. 全 access は audit log に記録 (監査対応)
+  5. SOC 2 / ISMS 準拠ロードマップ (Phase 3 で対応)
+```
+
+これは MCP server を直接立てる場合 **技術的に提供不可能** (client 側 token 経由なので Synapse Arrows が gate できない) だった。 Cockpit で **間接化** すれば security guarantee を商品化できる。
 
 ### なぜこれが刺さるか — 3つの構造的理由
 
@@ -90,22 +167,28 @@ KanseiLink が既に持っているもの:
 
 ## Target ICP (3層)
 
-### ICP-A: 会計事務所 (1-30人規模)
+### ICP-A: 会計事務所 (1-30人規模) ← **Phase 1 main target**
 
 **Pain**:
 - 月次決算で同じ作業を毎月繰り返す
 - 顧客企業 50-200社の経理データを横断
 - freee / Money Forward / 弥生 を顧客毎に切替え
 - 月末の閉め作業が一週間集中
+- AI 試したいが顧客データを Claude に直接入れられない
 
-**Linksee Memory + KanseiLink の value**:
+**Cockpit Web UI の value**:
 - 月次 close routine の AI 自動化
 - 顧客 × 過去 N か月の異常検知
 - 「いつもと違う仕訳」 alert
-- **value prop**: 「月次決算が3日 → 1日に」
+- **顧客データ流出 risk なし** (Japan region + audit log)
+- **value prop**: 「月次決算が3日 → 1日に、 顧客データも安全」
 
-**価格 hypothesis**: ¥30,000 / 月 / 事務所
-**Sales motion**: 既存知人 / 紹介 / 会計事務所コミュニティ
+**価格 hypothesis** (Cockpit Web UI tier):
+- Early bird (Phase 1): ¥30K-50K / 月 / 事務所
+- 通常: ¥75K-100K / 月 / 事務所
+- 大規模 (10+ accountants): ¥150K-200K / 月 / 事務所
+
+**Sales motion**: 既存知人 / 紹介 / 会計事務所コミュニティ / freee partner program / Note 発信者
 
 ### ICP-B: 個人 CFA / 投資銀行アナリスト / 個人投資家
 
@@ -114,12 +197,13 @@ KanseiLink が既に持っているもの:
 - Excel で財務モデル毎回ゼロから
 - 競合ベンチマーク調査が労働集約
 
-**Value**:
+**Cockpit Web UI の value**:
 - 開示資料 → 財務モデル自動生成
 - 業界ベンチマーク 比較 (200+ SaaS 横断)
 - Microsoft 365 連携 (Excel → PPT → Outlook flow)
+- Web UI で one-click
 
-**価格 hypothesis**: ¥10,000 / 月 / 個人
+**価格 hypothesis**: ¥10K-30K / 月 / 個人
 **Sales motion**: X / Note 個人発信 + financial vertical community
 
 ### ICP-C: 中小企業 経理担当 (50-300人規模)
@@ -129,12 +213,12 @@ KanseiLink が既に持っているもの:
 - 経費精算の異常検知 (不正 or 入力ミス)
 - 月次レポート作成
 
-**Value**:
-- 経費自動 audit
+**Cockpit Web UI の value**:
+- 経費自動 audit (Web UI で alert を確認するだけ)
 - 月次 close 半自動化
 - AI assistant 搭載 ("freee の使い方教えて")
 
-**価格 hypothesis**: ¥50,000-100,000 / 月 / 企業
+**価格 hypothesis**: ¥50K-100K / 月 / 企業
 **Sales motion**: SMB outbound + 紹介
 
 ## Product roadmap (3 specific products)
@@ -180,54 +264,124 @@ freee 経費データを毎日 monitor → 異常検知 (金額 / カテゴリ /
 **Sales target**:
 中小企業経理 5-10社 (¥50K/mo × 5 = ¥250K MRR)
 
-## 6か月後 (2026-11) の想定 state
+## 6か月後 (2026-11) の想定 state (Cockpit Web UI 含む)
 
 | 指標 | 現状 (5/7) | 6か月後 target |
 |---|---|---|
-| KanseiLink B2B paying customers | 0 | 10-20 |
-| MRR | $0 | $5-10K (= ¥75K-150万 月商) |
-| ICP-A (会計事務所) pilot | 0 | 5社 |
-| ICP-B (個人 finance pro) | 0 | 50人 |
-| ICP-C (中小企業) | 0 | 5社 |
-| ARR | $0 | $60-120K |
+| KanseiLink Cockpit paying firms | 0 | **20-30** |
+| Cockpit MRR | $0 | **$10K-15K** (¥150-220万 月商) |
+| ICP-A (会計事務所) pilot | 0 | 5-10社 |
+| ICP-B (個人 finance pro) | 0 | 50-100人 |
+| ICP-C (中小企業) | 0 | 5-10社 |
+| ARR | $0 | $120-180K |
 
 **月 $10K MRR 達成 = bootstrap "勝ち" 第一段階**。
 
-## Sales motion plan
+価格再計算:
+- 旧 plan ($30K/mo × 5社 = $150 ≒ ¥22K MRR、 達成までの社数多い)
+- **新 plan (Cockpit Web UI)**: ¥75K-200K/mo × 10-20社 = **¥750K-4M MRR ($5K-25K)**
+  → bootstrap "勝ち" $10K MRR は 15社で達成可能
+
+## Sales motion plan (Cockpit Web UI 中心)
 
 ### Phase 1 (5月-6月): Tokyo Conference 中心の早期 anchor 取り
 
-- Tokyo Conference 6/10 で 5-10社 contact
+- Cockpit Web UI MVP 構築 (Workflow 1: J-GAAP Earnings Reviewer のみ)
+- Tokyo Conference 6/10 で 5-10社 contact、 demo 見せる
 - 1社が pilot に乗ったら anchor → case study 化
 - pilot 中の friction 全部 product 改善 input
 
-### Phase 2 (7月-8月): 紹介経由の expand
+#### Pilot offer (early bird)
 
+```
+30日 free trial → ¥30K/mo (early bird、 通常 ¥75K) で 6か月固定
+代わりに:
+  ・ 使用感 feedback weekly call
+  ・ case study に名前 / 事務所名 OK
+  ・ 紹介 1 件で月額 半額 (= ¥15K) 1年間
+```
+
+→ early adopter は安く、 紹介で grow という SaaS 標準 motion。
+
+#### Tokyo Conf reach メッセージ案
+
+```
+"freee/MF 使う税理士向けに、 日本会計対応の AI cockpit を作っています。
+ 顧客データを直接 Claude に流さず、 セキュアな bridge layer 経由で
+ J-GAAP 決算 review / 月次 close / 経費 audit を自動化します。
+ Tokyo Conf 6/10 で demo します、 早期 pilot 価格は ¥30K/mo
+ (通常 ¥75K) です。"
+```
+
+### Phase 2 (7月-8月): 紹介経由の expand + Workflow 拡充
+
+- Workflow 2 (Month-end Closer) Web UI 公開
+- Workflow 3 (Statement Auditor) Web UI 公開
 - pilot 1社が working → 同業 (会計事務所コミュニティ) で口コミ
-- ICP-A 会計事務所 5社 reach 目標
+- ICP-A 会計事務所 5-10社 pilot 目標
 - ICP-B 個人 finance professional は X / Note で個人発信
 
-### Phase 3 (9月-): SMB outbound
+### Phase 3 (9月-): SMB outbound + Cockpit feature 拡充
 
 - ICP-C 中小企業を targeted outbound
+- Cockpit に経費自動 audit / 月次レポート機能追加
 - 月 $10K MRR 達成検証
+
+### Phase 4 (Q4 以降): Cockpit Pro tier
+
+- multi-firm management (複数事務所横断)
+- API access (Cockpit を他 SaaS から呼べる)
+- 月 $50K MRR を目指す
 
 ## 既存資産との接続性 map
 
 ```
-[現 KanseiLink]
+[現 KanseiLink (Layer 1 + 2)]
   ├── search_services tool        → Layer 2 product 全部で活用
   ├── get_recipe tool              → freee/弥生 連携 recipe を vertical 用に拡張
   ├── audit_cost tool              → Statement Auditor の前身、 finance 向け再設計
   ├── agent_voice tool             → finance professional voice 収集に転用
   ├── reconnaissance ant           → Statement Auditor の monitoring 部分に流用
-  └── KanseiLink web dashboard     → ICP-B 個人 finance professional 向け web UI
+  └── KanseiLink web dashboard     → Cockpit Web UI (Layer 3) の base に流用
 
-[新 finance vertical features]
+[新 Layer 2 finance MCP]
   ├── J-GAAP Earnings Reviewer     ← TDnet/EDINET parser 新規
   ├── Month-end Closer             ← Microsoft 365 連携新規
   └── Statement Auditor            ← reconnaissance ant 流用
+
+[新 Layer 3 Cockpit Web UI]
+  ├── Login + Auth                 ← Supabase 流用
+  ├── Dashboard (workflow tile)    ← Next.js + Vercel
+  ├── Workflow runner              ← Layer 2 MCP server を backend で叩く
+  ├── Audit log viewer             ← Supabase Postgres
+  └── Settings / Billing           ← Stripe (linksee.com で実績)
 ```
+
+### Cockpit Web UI 技術 stack
+
+```
+Frontend:    Next.js 16 + Tailwind (KanseiLink website 既存知見)
+Backend:     Next.js API routes / Supabase Edge Functions
+Auth:        Supabase Auth (Magic link / Google OAuth)
+Database:    Supabase Postgres (Japan region)
+Storage:     Japan region (Supabase JP) で顧客 data
+Payments:    Stripe (Linksee Memory Pro tier と共有)
+LLM:         Anthropic Claude (server side、 Sampling 経由)
+MCP server:  既存 KanseiLink (kansei-link-mcp-production.up.railway.app)
+            Cockpit backend が MCP client として叩く
+Hosting:     Vercel (Japan region で deploy)
+```
+
+### Solo 実装なら 4-6 週間で MVP
+
+```
+Week 1-2: Auth + Dashboard skeleton + Workflow 1 のみ実装
+Week 3-4: Layer 2 MCP server build (J-GAAP Earnings Reviewer)
+Week 5:   Stripe + audit log + Japan region 設定
+Week 6:   Pilot 開始 (1社)、 friction を Phase 2 input
+```
+
+→ Tokyo Conference 6/10 までに **Workflow 1 (J-GAAP Earnings Reviewer) の Cockpit demo は間に合う**。
 
 ## Risk & mitigation
 
@@ -241,7 +395,48 @@ freee 経費データを毎日 monitor → 異常検知 (金額 / カテゴリ /
 
 ## DECISIONS log
 
-### 2026-05-07 — Finance Vertical Pivot 決定
+### 2026-05-07 PM (sharpen) — Cockpit Web UI を Layer 3 として追加
+
+**CONTEXT**:
+当初の 2層構造 (Layer 1 Composio + Layer 2 Finance MCP) は MCP dev 向け発想に止まっていた。 Michie の市場観察 (5/7 PM):
+
+```
+✅ Freee 使う会計士・税理士が SNS で workflow 発信している
+✅ 同じ人達が MCP 自動化を試して失敗
+✅ "人力でやるの面倒" の声が広い
+
+❌ AI 自動化の knowledge ない
+❌ 顧客データ流出 risk (Claude/GPT に直接入れるの怖い)
+❌ 自分で組む時間 / skill ない
+```
+
+→ 「raw MCP server を税理士に渡す」 plan は構造的に営業不可能と判明。
+
+**DECISION**:
+3層構造に進化:
+- Layer 1 (基盤): Japanese Composio (変更なし)
+- Layer 2 (中間): Finance Vertical MCP server (内部統合用、 dev 向け)
+- **Layer 3 (NEW): Cockpit Web UI for tax accountants** (営業 product)
+
+新名称 (内部): "**KanseiLink Cockpit**"
+
+**REASON**:
+1. **Sales motion 革命**: dev 向け MCP server 設定 → Web SaaS subscribe で営業対象が万人規模に
+2. **価格上昇**: ¥10-30K/mo dev tier → ¥75-200K/mo business tier
+3. **Security narrative 商品化**: MCP では不可能だった "Japan region + audit log + 即時削除" guarantee が成立
+4. **Tokyo Conf demo が強力化**: CLI MCP demo (技術者のみ刺さる) → Web cockpit (誰でも理解できる)
+
+**REVERSIBILITY**:
+Medium — Layer 3 (Cockpit) を撤退すれば Layer 1+2 (基盤 + MCP) に戻れる
+ただし税理士向け marketing 後の方向転換は brand コスト
+
+**OPEN QUESTIONS**:
+- Cockpit MVP の Workflow 1 (J-GAAP Earnings Reviewer) は 4-6 週間で間に合うか?
+- Pilot 価格 ¥30K vs ¥50K (early bird) でどちらが signup multiplier 高いか?
+- Audit log / SOC 2 / ISMS の compliance roadmap は Phase 3 で間に合うか?
+- 顧客データ Japan region 縛りは Vercel + Supabase 構成で十分か?
+
+### 2026-05-07 AM — Finance Vertical Pivot 決定
 
 **CONTEXT**:
 KanseiLink が generic "Japanese Composio" として2 か月運営後、 paying customer 0 のまま。 Composio $29M war chest + Anthropic finance vertical 進出で、 generic では遠からず squeezed される。

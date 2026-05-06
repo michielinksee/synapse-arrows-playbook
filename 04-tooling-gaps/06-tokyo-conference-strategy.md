@@ -61,9 +61,11 @@ Code with Claude 系イベントの speaker lineup は通常 **2-3か月前 lock
 19:20-19:35  Linksee Memory v0.3 demo
               "5 MCP blocks 全実装事例 — 業界初"
               実 demo: Resources / Sampling / Server-side Agent Loop / Elicitation / Roots
-19:35-19:50  KanseiLink finance vertical pivot pitch
-              "Anthropic global tools の Japan ブリッジ"
-              実 demo: J-GAAP Earnings Reviewer (TDnet 開示 → AI summary)
+19:35-19:50  **KanseiLink Cockpit demo** (Web UI for tax accountants)
+              "顧客データ流出させずに Japan 会計を AI 自動化"
+              実 demo: Web cockpit dashboard 上で
+                1 click → TDnet 開示 → freee 仕訳 candidate → audit log
+              観客に "親世代の税理士でも使える" UI を見せる
 19:50-20:00  Synapse Arrows Playbook 紹介 (Public OSS doc)
               "Solo founder の operating system"
 20:00-20:30  Lightning Talk 募集枠 (5min × 4-5人)
@@ -250,6 +252,9 @@ GitHub: @michielinksee
 - punkpeye (Glama) に「Conference 行きますか?」 DM
 - Composio 日本担当 (もしいれば) reach
 - 既存 Linksee Memory user で Tokyo 在住者を探して invite
+- **freee/MF 使う税理士で SNS 発信している人を 10-20人 follow + DM** (KanseiLink Cockpit pilot 候補)
+- **会計士・税理士コミュニティ (X / Note / 業界 Slack) に Demo Night 投下**
+  → 税理士は engineer 系 conference に来ないので、 Demo Night だけのために招待
 
 ### Conference day
 
@@ -322,10 +327,11 @@ Week 4 (6/2-6/8):
 | Demo Night 参加者 | 20人 | 50人 |
 | 名刺交換 | 30人 | 80人 |
 | Linksee Memory waitlist signup (Tokyo由来) | 50人 | 150人 |
-| KanseiLink pilot interest 取得 | 1社 | 3社 |
+| **KanseiLink Cockpit pilot interest** 取得 | **1社** | **3社** |
 | Anthropic eng 直接接点 | 1人 | 5人 |
 | Press / blog mention | 0 | 1-2本 |
 | Synapse Arrows Playbook GitHub stars | +20 | +100 |
+| **税理士・会計士 contact 取得** | **5人** | **20人** |
 
 ## Anti-patterns
 
