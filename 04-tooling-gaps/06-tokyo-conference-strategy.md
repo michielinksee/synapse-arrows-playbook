@@ -1,29 +1,55 @@
-# Tokyo Conference 6/10 — Strategy + Backup Plans
+# Tokyo Conference 6/10 — Strategy (Virtual-only era)
 
-> Status: 策定中、 2026-05-07 起案
-> Conference: Code with Claude — Tokyo, 2026-06-10
+> Status: 策定中、 2026-05-07 起案 → **5/7 PM 大幅修正** (virtual-only 判明)
+> Conference: Code with Claude — Tokyo, 2026-06-10 **(VIRTUAL ONLY)**
 > Days remaining: ~34 days (5/7 → 6/10)
-> Owner: Michie (現地参加 + 営業) + Cofounder Claude (戦略 / 物量)
+> Owner: Michie (戦略) + Cofounder Claude (物量 / online content)
 > Companions: [04-linksee-memory-pro-tier-launch-plan](./04-linksee-memory-pro-tier-launch-plan.md), [05-kansei-link-finance-vertical-pivot](./05-kansei-link-finance-vertical-pivot.md)
 
-## Why this conference matters
+## 🔴 2026-05-07 PM 重要更新: Conference は **virtual のみ**
 
-Anthropic 主催の Tokyo conference はおそらく 2026 年で **アジア最大の Claude / MCP イベント**。
-Boris Cherny (Head of Claude Code) / Ami Vora (Head of Product) / Angela Jiang (API/SDK Product Lead) クラスが登壇。
+Michie 確認 (5/7): 物理参加の募集はすでに終了、 **virtual 視聴のみ** が残された参加形式。 strategy 全面見直し。
+
+### Virtual-only であることの structural impact
+
+| 当初想定 (物理) | 実情 (virtual) |
+|---|---|
+| Boris Cherny / Ami Vora と直接 face-to-face | online のみ、 chat / Q&A 経由 |
+| 名刺交換 / hallway track | X / LinkedIn DM が main |
+| Side event 主催で参加者集約 | 物理参加者がいない、 audience 構造変化 |
+| Demo を物理 booth で見せる | online で配信 / 動画 / X 経由 |
+| Networking で anchor customer 発掘 | online 経由のみ、 conversion 弱め |
+
+→ **「conference 物理参加 ride-along」という戦略は無効化**。
+
+### では Synapse Arrows にとって 6/10 はまだ価値があるのか?
+
+**Yes、 むしろ違う形で価値が高まる可能性**:
+
+1. **virtual 参加者は SNS にいる** — X / LinkedIn / Discord で全員到達可能
+2. **物理 friction 解消** — Anthropic eng の attention は会場ではなく、 配信 + reaction tweet に分散
+3. **コスト 0** — Tokyo 出張不要、 余った budget / 時間を online content に投下
+4. **同時視聴の "online community moment"** — X 上で realtime 反応大会、 Synapse Arrows がそこにいるかどうか
+
+→ **「Tokyo Conference 6/10 を Synapse Arrows brand の major launch moment として使う、 ただし online 主戦場で」** が新 strategy。
+
+## Why this conference still matters (revised)
+
+Anthropic 主催の Tokyo conference はおそらく 2026 年で **アジア最大の Claude / MCP イベント** (= **online でも attention 集中する moment**)。
+Boris Cherny / Ami Vora / Angela Jiang クラスが登壇 (= **virtual 視聴経由でも、 配信中の reaction が彼らに届く可能性**)。
+
 Synapse Arrows にとって:
 
-1. **Linksee Memory Pro tier launch のタイミング** (4週間 sprint の最後尾)
-2. **KanseiLink finance vertical の最初の anchor customer 探し**
-3. **Anthropic eng 直接接点** (将来 acquisition / partnership で効く)
-4. **Glama maintainer (punkpeye) + Composio 関係者と直接話せる可能性**
-
-3週間後 = **3つの product strategy 全部の "first contact" タイミング**。 ここで何かが起きると、その後の 6か月加速する。
+1. **Linksee Memory Pro tier launch のタイミング** (online で「同日 launch」narrative が effective)
+2. **KanseiLink Cockpit Web UI の online demo first impression** (動画で再利用可能)
+3. **Anthropic eng への online reach** (X engagement / live tweet stream)
+4. **日本 dev / 税理士コミュニティの online 集積タイミング**
 
 ## Reality check — 公式 talk 枠は厳しい
 
 ### 通常の Anthropic conference の speaker 確定 timing
 
-Code with Claude 系イベントの speaker lineup は通常 **2-3か月前 lock**。 5/7 時点で 6/10 conference には残り 34日 = ほぼ確実に主要枠は closed。
+Code with Claude 系イベントの speaker lineup は通常 **2-3か月前 lock**。 5/7 時点で 6/10 conference には残り 34日 = ほぼ確実に主要枠は closed。 Virtual-only でも同じ。
 
 ### 残された4 path
 
@@ -38,57 +64,96 @@ Code with Claude 系イベントの speaker lineup は通常 **2-3か月前 lock
 
 ## Path D — Side event 主催 (主戦略)
 
-### Concept
+### Concept (revised: Online Demo Day)
 
 ```
-タイトル: "Synapse Arrows × Linksee Memory — Demo Night"
-副題: "5 MCP blocks 全実装事例 / 日本 finance vertical / Solo founder の OS architecture"
-日時: 6月10日 (火) 19:00-21:30 (Conference 終了直後)
-       or 6月9日 (月) 19:00-21:30 (前夜祭、参加者来日済)
-場所: Tokyo (会場決定: WeWork / Anthropic オフィス近く / 友人企業 / 飲食店個室)
-形式: パネル + Demo + Networking
-規模: 20-50人
-費用: 飲み物軽食 ¥30K-50K (個人負担可能 範囲)
-募集: X / Zenn / Conference 参加者向け DM
+タイトル: "Synapse Arrows Demo Day — MCP Cockpit Showcase"
+副題: "5 MCP blocks 全実装事例 / 日本会計 AI cockpit / Solo founder の OS architecture"
+日時: 6月10日 (火) 22:00-23:30 JST (Conference 終了直後)
+       or 6月11日 (水) 12:00-13:30 JST (lunch time)
+形式: YouTube Live + X Spaces (二画面)
+        Live demo + slide + Q&A
+規模: 50-200人 (online、 録画は永続)
+費用: ¥0 (純 online、 OBS Studio + zoom 等)
+募集: X / Zenn / Conference 視聴者 hashtag 経由
+録画: 永続 asset 化、 後日 Zenn 第3弾 + Dev.to に embed
 ```
 
-### Agenda (90 min program)
+### Agenda (90 min online program)
 
 ```
-19:00-19:10  受付 + 自己紹介ボード (各人の興味タグ付け)
-19:10-19:20  Synapse Arrows 全体 pitch (Michie)
+22:00-22:05  Opening (Michie)
+              "今日 Tokyo Conference 視聴お疲れ様でした、
+               私たちの番です"
+22:05-22:20  Synapse Arrows 全体 pitch (Michie)
               "Solo founder + 5 product + Self-similar OS architecture"
-19:20-19:35  Linksee Memory v0.3 demo
+22:20-22:40  Linksee Memory v0.3 demo (live screen share)
               "5 MCP blocks 全実装事例 — 業界初"
-              実 demo: Resources / Sampling / Server-side Agent Loop / Elicitation / Roots
-19:35-19:50  **KanseiLink Cockpit demo** (Web UI for tax accountants)
+              実 demo: Resources / Sampling / Server-side Agent Loop /
+                       Elicitation / Roots
+              waitlist signup link 配布
+22:40-23:00  **KanseiLink Cockpit demo** (Web UI live walk-through)
               "顧客データ流出させずに Japan 会計を AI 自動化"
               実 demo: Web cockpit dashboard 上で
                 1 click → TDnet 開示 → freee 仕訳 candidate → audit log
-              観客に "親世代の税理士でも使える" UI を見せる
-19:50-20:00  Synapse Arrows Playbook 紹介 (Public OSS doc)
-              "Solo founder の operating system"
-20:00-20:30  Lightning Talk 募集枠 (5min × 4-5人)
-              参加者から「自分の MCP 実装事例」を拾う
-20:30-21:30  Networking
-              tech 立ち話 + finance / accounting professional との接続
+              "親世代の税理士でも使える" UI を見せる
+              pilot 申込 form 配布
+23:00-23:15  Q&A (X Spaces / YouTube chat)
+              Anthropic eng / dev community からの質問拾う
+23:15-23:30  Synapse Arrows Playbook 紹介 + 次の動き
+              "Public OSS doc / Series A までの roadmap"
+              follow / star / waitlist の3つの ask 明示
+```
+
+### Why this works (online era)
+
+- **Conference attention の余熱を捕まえる**: 視聴後22時帯は「もう少し関連 content 見たい」mode
+- **録画が永続 asset**: Zenn 第3弾 / Dev.to 英語版に embed、 半年売れる
+- **Global reach**: Tokyo 物理 50人 → online 200-500人 + 動画再生千数千
+- **コスト 0**: Tokyo 出張費 / 会場費が浮く分を online 配信質に投下
+- **Anthropic eng が反応しやすい**: Tweet で mention すれば届く可能性高い (会場で名刺交換より easy)
+
+### 実施リスク (online 版)
+
+| Risk | Mitigation |
+|---|---|
+| 集客失敗 (10人未満視聴) | X thread 連投 + Zenn 第2弾末尾に告知 + Conference hashtag に live tweet |
+| 配信トラブル | リハーサル 1回 (前日)、 backup として Zoom recording |
+| Anthropic との時間被り (まだ session 中) | 22:00 JST 開始 = Tokyo conf 終了予定後 |
+| 日本語 only / 英語 only どちら | bilingual: presenter は日本語、 slide / 字幕 英語 |
+| 録画 quality 低い | OBS Studio + 1080p + good mic + 静かな部屋 |
+
+## Path F — Conference 同時 live tweet stream (low effort, high return)
+
+会場物理にいない = 邪魔されず X 反応大会できる立場。
+
+### Strategy
+
+```
+6/10 当日 09:00-18:00:
+  ・Conference 視聴 (virtual)
+  ・X で keynote ごとに reaction tweet
+  ・各 talk の key insight を 280 字で要約 + 自分の解釈
+  ・Synapse Arrows 関連性のある内容で thread 化
+  ・hashtag #CodeWithClaude / #ClaudeCodeTokyo に乗る
+
+例: "Boris just said X. This is exactly what we shipped in
+     Linksee Memory v0.3 last week. → [link]"
+
+20:00-22:00:
+  ・1日の summary thread 投下
+  ・"明日 Demo Day で詳しく話します" link
+
+22:00-23:30:
+  ・Path E の Online Demo Day を実施
 ```
 
 ### Why this works
 
-- **公式 talk せずとも、conference 参加者の dense network に直接 access**
-- **Anthropic eng / punkpeye / Composio / 日本 dev コミュニティ 全員候補**
-- **Synapse Arrows brand を一夜で確立**
-- **anchor customer 候補との face-to-face**
-
-### 実施リスク
-
-| Risk | Mitigation |
-|---|---|
-| 集客失敗 (5人未満) | 早期から Conference 参加者にリーチ + 友人 backup ride |
-| Conference 当日疲労 | 前夜開催 (6/9) を選ぶと体力温存 |
-| Anthropic 側に怒られる (公式に近すぎる名前) | "Synapse Arrows community gathering" 等にする |
-| 場所予約ミス | 5月半ば確定 |
+- **会場のロジスティクスから完全独立** = 落ち着いて深い content 出せる
+- **Conference 公式 hashtag 経由で attention 流入**
+- **Anthropic eng が反応する可能性高い** (live で thoughtful tweet 出していると noticed されやすい)
+- **後日 Zenn 第3弾の素材**: 「Code with Claude Tokyo 2026 で見えた MCP の未来」
 
 ## Path A — 公式 talk submission
 
@@ -158,7 +223,7 @@ Length: 30 minutes (talk) + 15 minutes (Q&A)
 予算 > ¥300K (= raise 後): consider booth
 ```
 
-→ 現状 (bootstrap) は **pass + Path D 集中** が妥当。 funding / pilot revenue 入った段階で次回検討。
+→ 現状 (bootstrap) は **pass + Path E (Online Demo Day) 集中** が妥当。 funding / pilot revenue 入った段階で次回検討。
 
 ## Path C — Demo / Community slot
 
@@ -189,7 +254,7 @@ Michie
 
 Conference 当日 + side event + 一対一営業で使う共通 deck。
 
-### Slide 構成 (12-15 slides)
+### Slide 構成 (12-15 slides) — Online Demo Day 用
 
 ```
 1. Title: "Synapse Arrows — A Solo Founder's MCP-Native OS"
@@ -197,21 +262,21 @@ Conference 当日 + side event + 一対一営業で使う共通 deck。
 2. The story: 4か月前まで普通の Solo dev 問題 → 5 product OS
 3. Linksee Memory: local-first 6-layer memory (1,903 DL)
 4. KanseiLink: Japanese SaaS intelligence (200+ catalog)
-5. ScaNavi: vertical sake recommendation
-6. CardWize: vertical credit card optimization
-7. ReviewLens: vertical cosmetics review
-8. The OS: Synapse Arrows Playbook (public)
+5. KanseiLink Cockpit (NEW): Web UI for tax accountants
+6. ScaNavi: vertical sake recommendation
+7. CardWize: vertical credit card optimization
+8. ReviewLens: vertical cosmetics review
+9. The OS: Synapse Arrows Playbook (public)
    "Same OS at every scale: company → product → embedded agent → user"
-9. Today's milestone: Linksee Memory v0.3 = 5 MCP blocks 全実装
-10. Today's pivot: KanseiLink finance vertical = Anthropic 補完
-11. The 12-month plan: $10K MRR (bootstrap) → $100K → ?
-12. Why now: Tokyo at the inflection point
-13. Ask: pilot customers / dev contributors / partnership
-14. Contact: Michie / synapsearrows.com / linksee.com / kansei-link.com
-15. Q&A
+10. Today's milestone: Linksee Memory v0.3 = 5 MCP blocks 全実装
+11. Today's pivot: KanseiLink Cockpit = Anthropic 補完 + Japan security narrative
+12. The 12-month plan: $10K MRR (bootstrap) → $100K → ?
+13. Why now: Tokyo Conference 2026 が分水嶺
+14. Ask: waitlist signup / pilot customer / dev contributors
+15. Contact: Michie / synapsearrows.com / linksee.com / kansei-link.com
 ```
 
-### 1-pager handout
+### 1-pager handout (online 配布用 PDF)
 
 A4 1枚、両面:
 
@@ -223,12 +288,14 @@ Front:
 
 Back:
   Linksee Memory: 1,903 DL / 5 blocks 実装 / Pro tier $5/mo
-  KanseiLink: Japanese SaaS catalog / Finance vertical specialized
-  Tokyo demo night: 6/9 19:00 (location TBD)
+  KanseiLink Cockpit: 税理士向け AI 操縦席 / pilot ¥30K/mo
+  Online Demo Day: 6/10 22:00 JST (YouTube Live + X Spaces)
   Contact: Michie Yamaguchi / @ELLECraftsinga1
 ```
 
-### 名刺 (英文)
+→ Online 配布: linksee.com に download link、 X thread に embed、 Zenn 末尾 CTA
+
+### 名刺 (英文) — virtual era では QR ベース
 
 ```
 Michie Yamaguchi
@@ -246,92 +313,107 @@ GitHub: @michielinksee
 
 ### Pre-conference reach (5月後半)
 
-- X で「Tokyo Conf 6/10 行きます、 Demo Night 主催します」 thread 投下
-- Anthropic Tokyo team に follow + DM
+- **X で「6/10 Online Demo Day 開催」 thread 投下** (Tokyo Conf 同日 22:00 JST)
+- Anthropic Tokyo team に follow + DM (online で reach、 物理会わない前提)
 - Boris Cherny / Ami Vora / Angela Jiang に X follow + 軽い engagement
-- punkpeye (Glama) に「Conference 行きますか?」 DM
+- punkpeye (Glama) に「Conference 視聴中? Demo Day 来てください」 DM
 - Composio 日本担当 (もしいれば) reach
-- 既存 Linksee Memory user で Tokyo 在住者を探して invite
+- 既存 Linksee Memory user 全員 invite (online なので地域制約なし)
 - **freee/MF 使う税理士で SNS 発信している人を 10-20人 follow + DM** (KanseiLink Cockpit pilot 候補)
-- **会計士・税理士コミュニティ (X / Note / 業界 Slack) に Demo Night 投下**
-  → 税理士は engineer 系 conference に来ないので、 Demo Night だけのために招待
+- **会計士・税理士コミュニティ (X / Note / 業界 Slack) に Demo Day 投下**
+  → 税理士は engineer 系 conference に来ない、 online Demo Day なら参加可能
+- **MCP Discord、 Anthropic developer Discord に Demo Day 告知**
 
-### Conference day
+### Conference day (virtual viewing)
 
-- 名刺持参 50枚
-- 1-pager 30枚
-- Linksee Memory demo 用 laptop 持参
-- スマホで Linksee Memory mobile (将来) も
-- 会場で 10-20人と直接会話、 X handle 交換
+- 09:00-18:00: Conference 視聴 + live tweet (Path F)
+- 各 talk ごとに reaction tweet
+- key quote の screenshot + Synapse Arrows 関連性 thread 化
+- conference hashtag に乗る
 
-### Demo Night (6/9 or 6/10 夜)
+### Online Demo Day (6/10 22:00 JST)
 
-- 名刺持参
-- 1-pager 持参
-- demo laptop x 2 (backup含む)
-- KanseiLink finance demo data 用意 (上場企業の TDnet 開示 sample 1社分)
-- 飲食物発注
+- OBS Studio + 1080p camera + good mic 準備
+- Linksee Memory v0.3 demo (live screen share)
+- KanseiLink Cockpit Web UI demo (live walk-through)
+- TDnet 開示 sample データ準備
+- YouTube Live + X Spaces 同時配信
+- 録画 → Zenn 第3弾 / Dev.to 英語版 embed
 
 ### Post-conference follow-up routine
 
 ```
-Day 0 (Conference 当日 夜):
-  会った全員に X 上で軽い「ありがとう」 DM (or follow + reply)
+Day 0 (6/10 conference 当日):
+  09-18:  live tweet stream (Path F)
+  20-22:  1日 summary thread + Demo Day 告知再投下
+  22-23:30: Online Demo Day live (Path E)
+  23:30:   Demo Day 録画即 upload (YouTube)、 X thread で告知
 
-Day 1 (Conference 翌日):
-  特に深く話した人 5-10人に個別 long-form DM:
-    "デモした Linksee Memory / KanseiLink について追加情報"
+Day 1 (6/11):
+  Demo Day 視聴者全員に個別 thanks DM
+  深く engaged だった人 5-10人に long-form DM:
+    "デモした Linksee Memory / KanseiLink Cockpit について追加情報"
+  Demo 録画を Linksee.com / Synapse Arrows website に embed
 
-Day 7:
+Day 7 (6/17):
   pilot 候補 (会計事務所 etc) に formal proposal メール
-  Linksee Memory waitlist signup を依頼
+  Linksee Memory waitlist signup → Pro tier conversion 動向確認
 
-Day 14:
-  Conference 全体振り返り Zenn 記事
-  "Code with Claude Tokyo で会った 5つの surprise"
-  自分のブランド資産化
+Day 14 (6/24):
+  Conference + Demo Day 振り返り Zenn 第3弾 公開
+  "Code with Claude Tokyo で見えた MCP の未来 + 私たちが launched したもの"
+  Demo 録画 embed、 X thread 連動
+  Dev.to 英語版同時公開
 ```
 
 ## Pre-Tokyo Sprint (5月W2-W4 + 6月W1)
 
-Tokyo Conference 直前までに揃えたいもの (4 weeks):
+Online Demo Day 6/10 までに揃えたいもの (4 weeks):
 
 ```
 Week 1 (5/12-5/18):
   - Linksee Memory Resources 実装
-  - KanseiLink ICP-A list 5社
-  - Side event 場所 / 日時 確定
+  - KanseiLink Cockpit Web UI wireframe
+  - Online Demo Day 日時確定 (6/10 22:00 JST 推奨)
 
 Week 2 (5/19-5/25):
   - Linksee Memory Sampling + Server-side Agent Loop
-  - KanseiLink J-GAAP Earnings Reviewer demo build start
-  - Pitch deck v1 / 1-pager / 名刺発注
+  - KanseiLink Cockpit Web UI Workflow 1 (J-GAAP) 実装
+  - Pitch deck v1 / 1-pager PDF / online 自己紹介素材
+  - OBS Studio セットアップ + 配信リハーサル
 
 Week 3 (5/26-6/1):
   - Linksee Memory Elicitation + 日英 bilingual
-  - J-GAAP Earnings Reviewer demo 完成
-  - Side event 募集開始 (X / Zenn)
-  - Anthropic Tokyo team 個別 reach
+  - KanseiLink Cockpit demo flow 完成
+  - Online Demo Day 募集開始 (X / Zenn 第2弾末尾 / Discord)
+  - Anthropic Tokyo team 個別 X reach
 
 Week 4 (6/2-6/8):
   - Linksee Memory Pro tier landing page launch
   - Stripe 接続 + 30日 trial 設定
-  - Synapse Arrows Playbook v0.3 公開 (この doc 含む 3本)
-  - Side event 出席者数確認 + pizza 発注
+  - Synapse Arrows Playbook v0.3.x 全公開
+  - Online Demo Day 配信リハーサル (前日 6/9)
+
+Day 0 (6/10):
+  - 09-18 conference live tweet
+  - 22-23:30 Online Demo Day live 配信
+  - 録画即 upload
 ```
 
-## Success metrics (Tokyo Conference 期間)
+## Success metrics (Tokyo Conference 期間 — virtual era)
 
 | KPI | Min target | Stretch |
 |---|---|---|
-| Demo Night 参加者 | 20人 | 50人 |
-| 名刺交換 | 30人 | 80人 |
-| Linksee Memory waitlist signup (Tokyo由来) | 50人 | 150人 |
-| **KanseiLink Cockpit pilot interest** 取得 | **1社** | **3社** |
-| Anthropic eng 直接接点 | 1人 | 5人 |
+| Online Demo Day live 視聴者 | 50人 | 200人 |
+| Demo 録画 7日間視聴 | 200回 | 1000回 |
+| Linksee Memory waitlist signup (Tokyo Conf 由来) | 50人 | 200人 |
+| **KanseiLink Cockpit pilot interest** 取得 | **1社** | **5社** |
+| Anthropic eng X engagement (RT/reply) | 1件 | 5件 |
 | Press / blog mention | 0 | 1-2本 |
 | Synapse Arrows Playbook GitHub stars | +20 | +100 |
 | **税理士・会計士 contact 取得** | **5人** | **20人** |
+| Conference live tweet impressions | 10K | 100K |
+| Demo Day 後の new X follower | +50 | +200 |
 
 ## Anti-patterns
 
