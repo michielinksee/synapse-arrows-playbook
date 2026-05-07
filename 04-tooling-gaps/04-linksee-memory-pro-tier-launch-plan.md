@@ -16,14 +16,52 @@ Michie 確認 (5/7): 「計画が遅すぎる。 1-2 日で実装してそこか
 
 ### May Sprint timeline (圧縮版)
 
-| Week | 期間 | 主任務 | 副任務 |
-|---|---|---|---|
-| **Week 1** | 5/7 - 5/12 | Resources + Sampling 実装 (Implementer Claude) | LP wireframe + Stripe account |
-| **Week 2** | 5/13 - 5/19 | Server-side Agent Loop + Elicitation 実装 / LP公開 / waitlist 開始 | bilingual UI / Pro tier API gate |
-| **Week 3** | 5/20 - 5/26 | **拡散 phase**: X thread / Zenn 第3弾 / Reddit / HN Show HN | Conversion optimization |
-| **Week 4** | 5/27 - 5/31 | **拡散 + waitlist closing 100 人 hit** | Online Demo Day prep |
-| **Bonus** | 6/1 - 6/9 | Pro tier paid sign-up open | Online Demo Day rehearsal |
-| **Peak** | 6/10 | Online Demo Day 22:00 JST (Tokyo Conf 終了直後) | YouTube Live + X Spaces |
+| Week | 期間 | 主任務 | 副任務 | 状況 |
+|---|---|---|---|---|
+| **Week 1** | 5/7 - 5/12 | ~~Resources + Sampling 実装~~ → **Five Blocks 全実装** | LP wireframe + Stripe account | ✅ **5/7 中に完了** |
+| **Week 2** | 5/13 - 5/19 | LP 公開 / waitlist 開始 / Pro tier API gate | bilingual UI / Stripe webhook | 🔵 進行中 |
+| **Week 3** | 5/20 - 5/26 | **拡散 phase**: X thread / Zenn 第3弾 / Reddit / HN Show HN | Conversion optimization | 🟡 待機 |
+| **Week 4** | 5/27 - 5/31 | **拡散 + waitlist closing 100 人 hit** | Online Demo Day prep | 🟡 待機 |
+| **Bonus** | 6/1 - 6/9 | Pro tier paid sign-up open | Online Demo Day rehearsal | 🟡 待機 |
+| **Peak** | 6/10 | Online Demo Day 22:00 JST (Tokyo Conf 終了直後) | YouTube Live + X Spaces | 🟡 待機 |
+
+### 🟢 Week 1 (5/7) — 完了サマリ
+
+May Sprint Day 1 (= 5/7) で **想定 5-7 日分の実装を 1 セッションで完走**:
+
+| Block | Surface | Status |
+|---|---|---|
+| Tools | 8 tools (signature 不変、 backward compat) | ✅ unchanged |
+| **Resources** | `memory://stats` / `memory://hot` / `memory://recent` / `memory://caveats` + 3 templates | ✅ NEW |
+| **Prompts** | 5 templates (`summarize-session` / `extract-caveats` / `weekly-consolidation` / `recall-and-write` / `entity-handoff`) | ✅ NEW |
+| **Sampling** (opt-in) | `consolidate use_llm:true` で client LLM に再要約依頼 | ✅ NEW |
+| **Roots** (opt-in) | `recall_file scope_to_roots:true` で client root 内の path に絞る | ✅ NEW |
+| **Elicitation** (opt-in, newer) | `forget interactive:true memory_id:N` で user 確認 | ✅ NEW |
+
+実績:
+- PR #1 merge (squash → commit `78999b5`)
+- README v0.3.0 セクション (commit `e00542e`)
+- CI green 1発 pass (Build + handshake)
+- npm published `latest = 0.3.0` (https://www.npmjs.com/package/linksee-memory/v/0.3.0)
+- git tag `v0.3.0` pushed
+- smoke v0.2 backward-compat 全 pass
+- smoke v0.3.0 全 pass (Resources + Prompts + tool flag back-compat)
+- Linksee Memory caveat pin (memory_id 114623) — npm publish 罠 3 つ + 再現手順
+
+→ Week 2 タスクに前倒し着手可能。 Week 1 残り (5/8-5/12) は **LP wireframe + Stripe account + Zenn 第3弾 draft 着手** に充てる。
+
+### Week 2 plan (5/13 - 5/19) — 前倒し着手で 5/12 までに完成目標
+
+| Day | Task | Owner |
+|---|---|---|
+| 5/8 木 | Zenn 第2弾 publish (Glama 5 traps) + X thread → reach 観測 | Michie |
+| 5/8 木 | Pro tier LP wireframe (Vercel + Tailwind) draft | Cofounder |
+| 5/9 金 | Stripe account 開設 + Pro tier $5/$10/$50 product 作成 | Michie + Cofounder |
+| 5/10 土 | Dev.to 英語版 publish (Glama 5 traps EN) | Cofounder draft → Michie review |
+| 5/11 日 | Pro tier API gate 実装 (license check via Cloudflare Worker) | Cofounder |
+| 5/12 月 | LP 公開 + waitlist signup form ライブ | Cofounder |
+| 5/13-5/15 | bilingual UI (JP/EN) 切替 + Stripe webhook 接続 | Cofounder |
+| 5/16-5/19 | Zenn 第3弾 draft (v0.3.0 Five Blocks 事例 = 業界先行 1% narrative) | Cofounder draft → Michie review |
 
 ## Why now (この doc が存在する理由)
 
