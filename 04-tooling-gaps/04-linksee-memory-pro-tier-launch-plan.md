@@ -1,10 +1,29 @@
-# Linksee Memory — Pro Tier Launch Plan (4-week sprint)
+# Linksee Memory — Pro Tier Launch Plan (May Sprint)
 
-> Status: planning, 2026-05-07 起案
-> Target launch: 2026-06-08 (Tokyo Conference 直前)
+> Status: planning, 2026-05-07 起案 → **5/7 PM May Sprint mode** (4週 → 1-2週へ圧縮)
+> Target launch: **2026-05-19 by EOW (Week 2)** — その後 5月後半 = 拡散 phase
 > Owner: Michie + Cofounder Claude (戦略 / 実装監督) + Implementer Claude (実装)
 > Predecessors: [scope-locks](../02-process/scope-locks.md), [feature-spec-discipline](../02-process/feature-spec-discipline.md)
-> Companions: [05-kansei-link-finance-vertical-pivot](./05-kansei-link-finance-vertical-pivot.md), [06-tokyo-conference-strategy](./06-tokyo-conference-strategy.md)
+> Companions: [05-kansei-link-finance-vertical-pivot](./05-kansei-link-finance-vertical-pivot.md), [06-tokyo-conference-strategy](./06-tokyo-conference-strategy.md), [07-kansei-link-cockpit-security-posture](./07-kansei-link-cockpit-security-posture.md)
+
+## 🔴 2026-05-07 PM 重要更新: May Sprint mode
+
+Michie 確認 (5/7): 「計画が遅すぎる。 1-2 日で実装してそこから拡散、 全部 5 月で終わらせる」
+
+→ 当初 4-week sprint は **2-week implement + 2-week marketing** に圧縮。
+→ Linksee Memory Pro tier は **5/19 (Week 2 EOW) 完成** → **5/20-5/31 拡散 phase**。
+→ Tokyo Conference 6/10 は launch ではなく **"拡散 phase の peak moment"** に再定義。
+
+### May Sprint timeline (圧縮版)
+
+| Week | 期間 | 主任務 | 副任務 |
+|---|---|---|---|
+| **Week 1** | 5/7 - 5/12 | Resources + Sampling 実装 (Implementer Claude) | LP wireframe + Stripe account |
+| **Week 2** | 5/13 - 5/19 | Server-side Agent Loop + Elicitation 実装 / LP公開 / waitlist 開始 | bilingual UI / Pro tier API gate |
+| **Week 3** | 5/20 - 5/26 | **拡散 phase**: X thread / Zenn 第3弾 / Reddit / HN Show HN | Conversion optimization |
+| **Week 4** | 5/27 - 5/31 | **拡散 + waitlist closing 100 人 hit** | Online Demo Day prep |
+| **Bonus** | 6/1 - 6/9 | Pro tier paid sign-up open | Online Demo Day rehearsal |
+| **Peak** | 6/10 | Online Demo Day 22:00 JST (Tokyo Conf 終了直後) | YouTube Live + X Spaces |
 
 ## Why now (この doc が存在する理由)
 

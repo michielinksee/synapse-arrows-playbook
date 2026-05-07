@@ -1,9 +1,48 @@
-# KanseiLink — Finance Vertical Pivot (3-Layer Strategy)
+# KanseiLink — Finance Vertical Pivot (3-Layer Strategy, May Sprint)
 
-> Status: strategic pivot, 2026-05-07 起案 → **2026-05-07 sharpen** (Cockpit Web UI 追加)
+> Status: strategic pivot, 2026-05-07 起案 → **2026-05-07 PM May Sprint mode** (4-6週 → 1-2週)
 > Owner: Michie (B2B sales) + Cofounder Claude (strategy)
 > Predecessors: 既存 KanseiLink MCP intelligence layer (200+ Japanese SaaS catalog)
-> Companions: [04-linksee-memory-pro-tier-launch-plan](./04-linksee-memory-pro-tier-launch-plan.md), [06-tokyo-conference-strategy](./06-tokyo-conference-strategy.md)
+> Companions: [04-linksee-memory-pro-tier-launch-plan](./04-linksee-memory-pro-tier-launch-plan.md), [06-tokyo-conference-strategy](./06-tokyo-conference-strategy.md), **[07-kansei-link-cockpit-security-posture](./07-kansei-link-cockpit-security-posture.md) (security 別 doc に切り出し)**
+
+## 🔴 2026-05-07 PM 重要更新: May Sprint mode + Doc 07 分離 + Zero-Infra 検討
+
+### (1) May Sprint mode
+
+Michie 確認 (5/7): 「計画が遅すぎる。 1-2 日で実装してそこから拡散、 全部 5 月で終わらせる」
+
+→ Cockpit MVP は **4-6 週 → 2 週圧縮** (Phase 1 security と並行)。
+→ ICP-A pitch は 5/26 から、 pilot 1 firm 契約は 5/31 までに目指す。
+
+### (2) Security posture を Doc 07 に独立分離
+
+会計事務所向けの購買決定 trigger は機能ではなく **「データを預けて大丈夫か」** の信頼判断。
+別 track の重要性が増したため → **Doc 07** として分離: `07-kansei-link-cockpit-security-posture.md`
+
+→ Layer 3 Cockpit 章のすべての security 関連は **Doc 07 を参照** とする。
+
+### (3) Zero-Infra vs Self-host with Security の判断
+
+サーバー保有リスク (DDoS / ransomware で個人開発 SaaS が廃業する事例) を踏まえた検討の結果:
+
+| 選択肢 | 採否 | 理由 |
+|---|---|---|
+| **Zero-Infra** (Layer 3 を BYO Vercel テンプレ配布) | ❌ 不採用 | 会計士 / 税理士は "気軽に web で使える" UX を期待。 self-host は friction 過剰、 問い合わせ対応も難。 |
+| **Self-host with Phase 1 Security** (Vercel JP + Supabase JP + Cloudflare + insurance + audit log + DPA) | ✅ **採用** | Doc 07 で詳細化。 月 ¥45-100K で 1 顧客で回収、 unit economics 成立。 |
+| **Hybrid** (Layer 1 = git+CDN / Layer 2 = npm runtime / Layer 3 = managed self-host) | ✅ **副採用** | Layer 1-2 は user runtime / static で軽量、 Layer 3 のみ自社 host 集中。 |
+
+→ Layer 3 だけ自社 host、 ただし Phase 1 Security (Doc 07) で堅守する設計。 Layer 1-2 は user runtime / git+CDN で攻撃面最小化。
+
+### May Sprint timeline (圧縮版、 Cockpit + Phase 1 security 並行)
+
+| Week | 期間 | Layer 1 (catalog) | Layer 2 (Finance MCP) | Layer 3 (Cockpit + Security) |
+|---|---|---|---|---|
+| **Week 1** | 5/7 - 5/12 | git+CDN 移行検討 | J-GAAP Earnings Reviewer 実装 | Vercel/Supabase/Cloudflare 契約 + DB schema (Doc 07 §Phase 1 Day 1-7) |
+| **Week 2** | 5/13 - 5/19 | catalog 公開継続 | Month-end Closer 実装 | 2FA + audit log + 削除証明書 (Doc 07 §Phase 1 Day 8-14) |
+| **Week 3** | 5/20 - 5/26 | (静的化保留) | Statement Auditor 実装 | ICP-A 5 firm pitch + DPA 提示 + 法務 finalize |
+| **Week 4** | 5/27 - 5/31 | (拡散) | (拡散) | **pilot 1 firm 契約目標** + Online Demo Day demo segment 準備 |
+| **Bonus** | 6/1 - 6/9 | catalog 拡大 | + Sansan / SmartHR 連携 | pilot data validation + 第2 firm pitch |
+| **Peak** | 6/10 | Online Demo Day で全 Layer demo (22:00 JST) |
 
 ## 2026-05-07 PM sharpen (重要な修正)
 
