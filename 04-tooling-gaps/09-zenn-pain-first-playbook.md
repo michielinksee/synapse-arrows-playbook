@@ -54,6 +54,16 @@
 - **固有名詞 1 つ以上** (Claude Code / Cursor / Codex / Gemini / MCP / Stripe / Vercel 等)
 - **maker 視点ではなく user 視点で書く**: 「MCP server を作る方法」 ではなく 「Claude Code を便利にする方法」
 
+### File 名 (= slug) 制約 ⚠️ 別ルール
+Zenn は **ファイル名 (拡張子除く) = article slug**。 別途以下を満たす必要:
+
+- **12〜50 文字** (Zenn hard limit、 第4弾で踏んだ罠)
+- **半角英数 + ハイフン (-) + アンダースコア (_) のみ** (大文字・日本語・記号 NG)
+- **safety target は 45 文字以下** (5 字 buffer)
+- 命名パターン: `linksee-memory-{client}-{topic}-{YYYYMMDD}` (例: `linksee-memory-claude-code-recall-20260508` = 42 chars)
+- topic 部分は **user benefit を表す動詞 / 名詞** (例: recall / publish / five-blocks / 6-layer)
+- 既存 file 名と重複しない
+
 ### Body 構造 (上から下に厳守)
 
 ```
