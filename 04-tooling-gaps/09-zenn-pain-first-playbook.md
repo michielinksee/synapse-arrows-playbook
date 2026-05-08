@@ -141,11 +141,12 @@ Zenn は **ファイル名 (拡張子除く) = article slug**。 別途以下を
 
 ## 今後の記事の approval gate (= scope-lock)
 
-新規 Zenn 記事を draft する時、 commit 前に **以下 6 項目すべて** に ✅ が必要:
+新規 Zenn 記事を draft する時、 commit 前に **以下 7 項目すべて** に ✅ が必要:
 
 ```
 [ ] Title: 「あなたの X、 実は Y」 等の 6 パターンのいずれかを満たす
 [ ] Title 文字数: 60 字以下 (= 70 字 hard limit から 10 字 buffer)
+[ ] File 名 (slug): 半角英数+ハイフン/_、 12-50 字 (45 字以下安全)、 既存と重複なし
 [ ] Topics: 3-5 個、 hot keyword 1 個以上含む
 [ ] Body の lead: ユーザーの frustration から始まる (technical 用語の壁を作らない)
 [ ] Body の構造: 7 sections (lead / before-after / 診断 / 手順 / 罠 / TL;DR / 次のアクション)
@@ -153,6 +154,17 @@ Zenn は **ファイル名 (拡張子除く) = article slug**。 別途以下を
 ```
 
 これを守らない記事は publish しない (= scope-lock で防御)。
+
+### Self-check 1-liner (commit 前に必ず実行)
+
+```bash
+node -e "
+const title = 'あなたの ...';
+const slug = 'linksee-memory-...';
+console.log('title:', [...title].length, '/ 60 safety:', [...title].length <= 60 ? '✅' : '❌');
+console.log('slug:', slug.length, '/ 12-50:', slug.length >= 12 && slug.length <= 50 ? '✅' : '❌');
+"
+```
 
 ## Ablation experiment (= 効果測定)
 
